@@ -25,6 +25,12 @@ export default async function decorate(block) {
   const resp = await fetch(`${navPath}.plain.html`);
   if (resp.ok) {
     const html = await resp.text();
+    
+ //fetch logo element 
+  const logo = document.createElement('div');
+  logo.classList.add('nav-logo');
+  logo.innerHTML = '<img src="path-to-your-logo.png" alt="Your Logo">'; // Replace with your logo path
+  nav.prepend(logo); // This adds the logo to the nav
 
     // decorate nav DOM
     const nav = document.createElement('nav');
